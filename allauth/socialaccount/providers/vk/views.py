@@ -40,6 +40,7 @@ class VKOAuth2Adapter(OAuth2Adapter):
         uid = kwargs['response']['user_id']
         resp = requests.get(self.profile_url,
                             params={'access_token': token.token,
+                                    'v': '3.0',
                                     'fields': ','.join(USER_FIELDS),
                                     'user_ids': uid})
         resp.raise_for_status()
